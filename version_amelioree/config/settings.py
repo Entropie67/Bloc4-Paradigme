@@ -1,4 +1,3 @@
-""" Ensemble des constantes utilisée dans l'application"""
 
 MAP_PATH = "data/labyrinthes/map.txt"
 FPS = 30
@@ -9,7 +8,7 @@ SIZE_OF_SPRITE = 32
 NUMBER_OF_TILES = 4 # objets à collecter
 NUMBER_OF_ENEMIES = 2
 
-# Charactères utilisés pour encoder la map
+# Caractères utilisés pour encoder la map
 START_CHAR = 'S'
 END_CHAR = 'E'
 PATH_CHAR = '.'
