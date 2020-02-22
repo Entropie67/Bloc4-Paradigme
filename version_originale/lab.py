@@ -4,6 +4,7 @@ import pygame
 from pygame.locals import *
 from random import *
 
+######################################
 nombre_sprite_cote = 15
 taille_sprite = 30
 cote_fenetre = nombre_sprite_cote * taille_sprite
@@ -17,7 +18,10 @@ image_arrivee = "images/arrivee.png"
 image_seringue = "images/seringue.png"
 image_tube = "images/tube_plastique.png"
 image_ether = "images/ether.png"
+#a mettre dans un fichier de configuration
+######################################
 
+# Là je n'aime pas trop le 'n1' en dur, on va plutôt faire autre chose.
 with open('n1', "r") as fichier:
         structure_niveau = []		
         for ligne in fichier:
@@ -27,7 +31,8 @@ with open('n1', "r") as fichier:
                                 ligne_niveau.append(sprite)
                 structure_niveau.append(ligne_niveau)
         structure = structure_niveau
-
+##############################################################
+# Cette classe perso pourrait être dans un autre fichier
 class Perso:
 	def __init__(self, image, structure):
 		#Sprites du personnage
@@ -94,7 +99,7 @@ class Item:
 		self.structure = structure
 		self.case_x = 0
 		self.case_y = 0
-
+		# La terminaison de cette boucle n'est pas assurée
 		continuerob = True
 		while continuerob:
 			x = randint(0,14)

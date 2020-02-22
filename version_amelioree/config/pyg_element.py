@@ -6,7 +6,7 @@ from models.position import Position
 
 
 class PyGame():
-    ''' Class that will instantiate the pygame element needed in the project '''
+    """ Class that will instantiate the pygame element needed in the project """
 
     def __init__(self):
         py.init()
@@ -87,7 +87,7 @@ class PyGame():
                               (j * const.SIZE_OF_SPRITE, i * const.SIZE_OF_SPRITE))
 
     def blit(self, image, rect):
-        ''' Print an image on the window base on its rect arg '''
+        """ Print an image on the window base on its rect arg """
         self.screen.blit(image, rect)
 
     def refresh(self):

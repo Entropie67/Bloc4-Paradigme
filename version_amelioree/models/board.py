@@ -47,19 +47,19 @@ class Board:
 
     @property
     def tiles_position(self):
-        ''' Tiles position '''
+        """Tiles position"""
         tiles = [sprite for sprite in self.sprites if isinstance(sprite, TileSprite)]
         return [tile.position for tile in tiles]
 
     @property
     def enemies_position(self):
-        ''' Enemies position '''
+        """Enemies position"""
         enemies = [sprite for sprite in self.sprites if isinstance(sprite, EnemySprite)]
         return [enemy.pos["actual"] for enemy in enemies]
 
     def load_from_file(self):
-        ''' From a txt file, read lines and characters
-        and convert it to map positions. '''
+        """From a txt file, read lines and characters
+        and convert it to map positions."""
         len_x = 0
         len_y = 0
 
@@ -80,10 +80,10 @@ class Board:
         return len_x, len_y
 
     def add_sprites(self):
-        ''' Add all characters to board by creating new instance.
+        """Add all characters to board by creating new instance.
         Add all sprites instances created by character to a group of sprite
         calculate sprite order and set corresponding sprite instance with the corresponding order
-        Order is used to draw sprites '''
+        Order is used to draw sprites"""
 
         self.sprites = SpriteGroup()
         self.add_guardian()
