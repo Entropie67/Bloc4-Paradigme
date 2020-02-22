@@ -237,7 +237,7 @@ while continuer:
 					fenetre.blit(arrivee, (x, y))
 				num_case += 1
 			num_ligne += 1
-		fenetre.blit(mg.direction, (mg.x, mg.y)) #mg.direction = l'image dans la bonne direction
+		fenetre.blit(mg.direction, (mg.x, mg.y)) #loli.direction = l'image dans la bonne direction
 		if(structure[tube.case_y][tube.case_x] == 'i'):
 			fenetre.blit(tube.image, (tube.x, tube.y))
 		if(structure[seringue.case_y][seringue.case_x] == 'i'):

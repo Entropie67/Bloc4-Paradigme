@@ -7,11 +7,13 @@ from random import *
 
 class Niveau:
 	"""Classe permettant de créer un niveau"""
+
 	def __init__(self, fichier):
+		"""constructeur de la classe niveau"""
 		self.fichier = "data/"+fichier
 		self.structure = 0
 		self.free_path = set()
-		self.__generer()
+		self.__generer()  # génération du lab
 	
 	def __generer(self):
 		"""Méthode permettant de générer le niveau en fonction du fichier.
@@ -19,11 +21,17 @@ class Niveau:
 		#On ouvre le fichier
 		with open(self.fichier, "r") as fichier:
 			structure_niveau = []
-
+			fichier2 = fichier
 			#On parcourt les lignes du fichier
 			num_ligne = 0
-			for ligne in fichier:
+			print("avant", fichier)
+			f = lambda liste: list(filter(lambda x: x != '\n', liste))
+			#t = list(map(list, fichier))
+			#print(t)
+			print("après", fichier)
+			for ligne in fichier2:
 				ligne_niveau = []
+
 				#On parcourt les sprites (lettres) contenus dans le fichier
 				num_case = 0
 				for sprite in ligne:
@@ -48,13 +56,13 @@ class Niveau:
 		de la liste de structure renvoyée par generer()"""
 		#Chargement des images (seule celle d'arrivée contient de la transparence)
 		mur = pygame.image.load(image_mur).convert()
-		depart = pygame.image.load(image_depart).convert()
+		depart = pygame.image.load(image_depart).convert_alpha()
 		arrivee = pygame.image.load(image_arrivee).convert_alpha()
-		
-		#On parcourt la liste du niveau
+		sol = pygame.image.load(image_sol).convert()
+		# On parcourt la liste du niveau
 		num_ligne = 0
 		for ligne in self.structure:
-			#On parcourt les listes de lignes
+			# On parcourt les listes de lignes
 			num_case = 0
 			for sprite in ligne:
 				#On calcule la position réelle en pixels
@@ -63,12 +71,17 @@ class Niveau:
 				if sprite == 'm':		   #m = Mur
 					fenetre.blit(mur, (x,y))
 				elif sprite == 'd':		   #d = Départ
+					fenetre.blit(sol, (x, y))
 					fenetre.blit(depart, (x,y))
 				elif sprite == 'a':		   #a = Arrivée
+					fenetre.blit(sol, (x, y))
 					fenetre.blit(arrivee, (x,y))
+				elif sprite == '0':
+					fenetre.blit(sol, (x, y))
 				num_case += 1
 			num_ligne += 1
-			
+
+
 			
 			
 			
@@ -131,6 +144,9 @@ class Perso:
 
 		self.image = pygame.image.load(
 			IMAGES_PERSONNAGE[d][self.pas%3]).convert_alpha()
+
+
+
 
 class Item:
 	"""Classe permettant de créer un personnage"""
