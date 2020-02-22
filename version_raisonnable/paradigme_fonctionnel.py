@@ -6,7 +6,6 @@ with open('data/n1', "r") as fichier:
     structure_niveaua = list(map(lambda liste: list(filter(lambda x: x != '\n', liste)),
                                 list(map(list, fichier))))
 
-
 with open('data/n1', "r") as fichier:
     structure_niveau = []
     for ligne in fichier:
@@ -15,7 +14,6 @@ with open('data/n1', "r") as fichier:
             if sprite != '\n':
                 ligne_niveau.append(sprite)
         structure_niveau.append(ligne_niveau)
-
 
 assert structure_niveaua == structure_niveau , "problème"
 print("C'est bien la même chose")
